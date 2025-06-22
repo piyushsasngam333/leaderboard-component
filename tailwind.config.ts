@@ -62,6 +62,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Trading theme colors from Figma design
+        trading: {
+          primary: "#28BFFF",
+          background: "#0A1B23",
+          card: "#153847",
+          "card-border": "rgba(40, 191, 255, 0.05)",
+          gold: "#F9D878",
+          silver: "#CDCDDC",
+          bronze: "#D49E7F",
+          "text-primary": "#E4EEF5",
+          "text-secondary": "#85A8C3",
+          "text-muted": "#456074",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
