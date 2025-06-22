@@ -103,4 +103,41 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Trading theme specific styles */
+  .trading-background {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(80, 213, 255, 0.1) 0%,
+        rgba(80, 213, 255, 0.02) 28.89%,
+        rgba(80, 213, 255, 0) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(21, 56, 71, 0.08) 39.23%,
+        rgba(14, 30, 35, 0.08) 100%
+      );
+  }
+
+  .trading-card {
+    background: linear-gradient(
+      0deg,
+      rgba(21, 56, 71, 0.15) 39.23%,
+      rgba(14, 30, 35, 0.15) 100%
+    );
+  }
+
+  /* Custom gradient text effects */
+  .gradient-text-primary {
+    background: linear-gradient(301deg, #09f 0%, #50d5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Ensure dark mode is default for trading theme */
+  html {
+    @apply dark;
+  }
 }
