@@ -83,47 +83,52 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
 
     if (isCurrentUser) {
       return {
-        barColor: "bg-gradient-to-r from-[#0099FF] to-[#50D5FF]",
+        barColor: "bg-gradient-to-r from-blue-500 to-cyan-400",
         bgGradient:
-          "bg-gradient-to-r from-[rgba(25,172,255,0)] via-[rgba(25,172,255,0.5)] to-[rgba(25,172,255,0)]",
+          "bg-gradient-to-r from-transparent via-blue-500/20 to-transparent",
         textColor:
-          "bg-gradient-to-r from-[#0099FF] to-[#50D5FF] bg-clip-text text-transparent",
+          "bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent",
         badgeColor:
-          "bg-gradient-to-r from-[#0099FF] to-[#50D5FF] bg-clip-text text-transparent",
+          "bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent",
+        badgeBg: "bg-blue-500/10",
       };
     }
 
     switch (position) {
       case 1:
         return {
-          barColor: "bg-[#F9D878]",
+          barColor: "bg-yellow-400",
           bgGradient:
-            "bg-gradient-to-r from-[rgba(249,216,120,0)] via-[rgba(249,216,120,0.5)] to-[rgba(249,216,120,0)]",
-          textColor: "text-[#E4EEF5]",
-          badgeColor: "text-[#F0D87F]",
+            "bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent",
+          textColor: "text-slate-100",
+          badgeColor: "text-yellow-300",
+          badgeBg: "bg-yellow-400/10",
         };
       case 2:
         return {
-          barColor: "bg-[#CDCDDC]",
+          barColor: "bg-gray-300",
           bgGradient:
-            "bg-gradient-to-r from-[rgba(201,205,221,0)] via-[rgba(201,205,221,0.5)] to-[rgba(201,205,221,0)]",
-          textColor: "text-[#E4EEF5]",
-          badgeColor: "text-[#C7CDDE]",
+            "bg-gradient-to-r from-transparent via-gray-300/30 to-transparent",
+          textColor: "text-slate-100",
+          badgeColor: "text-gray-300",
+          badgeBg: "bg-gray-300/10",
         };
       case 3:
         return {
-          barColor: "bg-[#D49E7F]",
+          barColor: "bg-orange-400",
           bgGradient:
-            "bg-gradient-to-r from-[rgba(212,158,127,0)] via-[rgba(212,158,127,0.5)] to-[rgba(212,158,127,0)]",
-          textColor: "text-[#E4EEF5]",
-          badgeColor: "text-[#CFA084]",
+            "bg-gradient-to-r from-transparent via-orange-400/30 to-transparent",
+          textColor: "text-slate-100",
+          badgeColor: "text-orange-300",
+          badgeBg: "bg-orange-400/10",
         };
       default:
         return {
-          barColor: "bg-[#D49E7F]",
+          barColor: "bg-orange-400",
           bgGradient: "",
-          textColor: "text-[#E4EEF5]",
-          badgeColor: "text-[#85A8C3]",
+          textColor: "text-slate-100",
+          badgeColor: "text-slate-400",
+          badgeBg: "bg-blue-500/10",
         };
     }
   };
@@ -151,67 +156,53 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-7xl mx-auto p-6">
+    <div className="flex flex-col items-center gap-8 w-full max-w-7xl mx-auto p-6 min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       {/* Header Section */}
       <div className="flex justify-between items-center w-full">
         <div className="flex items-center gap-3">
-          <div className="flex w-11 h-11 flex-col justify-center items-center rounded-lg border border-[#28BFFF] bg-[rgba(40,191,255,0.05)] shadow-[0px_0px_16px_0px_rgba(25,213,251,0.12),0px_-8px_32px_0px_rgba(78,193,255,0.06)_inset]">
+          <div className="flex w-11 h-11 flex-col justify-center items-center rounded-lg border border-cyan-400 bg-cyan-400/5 shadow-[0px_0px_16px_0px_rgba(25,213,251,0.12)] shadow-cyan-400/10">
             <div className="flex justify-center items-center relative">
               <CrownIcon
-                className="w-4 h-6 rotate-[9.895deg]"
-                color="url(#paint0_linear)"
+                className="w-4 h-6 transform rotate-[10deg]"
+                color="#06B6D4"
               />
               <CrownIcon
-                className="w-4 h-6 rotate-[-170.105deg] absolute left-4"
-                color="url(#paint0_linear)"
+                className="w-4 h-6 transform rotate-[-170deg] absolute left-4"
+                color="#06B6D4"
               />
-              <svg width="0" height="0">
-                <defs>
-                  <linearGradient
-                    id="paint0_linear"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#09F" />
-                    <stop offset="100%" stopColor="#50D5FF" />
-                  </linearGradient>
-                </defs>
-              </svg>
             </div>
           </div>
-          <h1 className="text-[#E4EEF5] text-2xl font-medium -tracking-[0.72px]">
+          <h1 className="text-slate-100 text-2xl font-medium tracking-tight">
             Top Traders
           </h1>
         </div>
       </div>
 
       {/* Table Container */}
-      <div className="flex p-8 flex-col items-center gap-8 w-full rounded-2xl border border-[rgba(40,191,255,0.05)] bg-[linear-gradient(135deg,rgba(80,213,255,0.10)_0%,rgba(80,213,255,0.02)_28.89%,rgba(80,213,255,0.00)_100%),linear-gradient(0deg,rgba(21,56,71,0.08)_39.23%,rgba(14,30,35,0.08)_100%)]">
+      <div className="flex p-8 flex-col items-center gap-8 w-full rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-slate-800/50 via-slate-900/80 to-slate-800/50 backdrop-blur-sm">
         {/* Table Header */}
         <div className="flex flex-col items-start gap-6 w-full">
           <div className="flex p-1 items-center gap-[72px] w-full rounded-xl">
             <div className="flex w-[84px] pr-2 justify-center items-center gap-2.5">
-              <div className="flex-1 text-[#85A8C3] text-right text-sm font-normal -tracking-[0.42px]">
+              <div className="flex-1 text-slate-400 text-right text-sm font-normal tracking-tight">
                 Place
               </div>
             </div>
             <div className="flex pr-8 items-center gap-8 flex-1">
-              <div className="w-[180px] text-[#85A8C3] text-sm font-normal -tracking-[0.42px]">
+              <div className="w-[180px] text-slate-400 text-sm font-normal tracking-tight">
                 Trader
               </div>
               <div className="flex items-center gap-8 flex-1">
-                <div className="flex-1 text-[#85A8C3] text-right text-xs font-normal -tracking-[0.36px]">
+                <div className="flex-1 text-slate-400 text-right text-xs font-normal tracking-tight">
                   Equity
                 </div>
-                <div className="flex-1 text-[#85A8C3] text-right text-xs font-normal -tracking-[0.36px]">
+                <div className="flex-1 text-slate-400 text-right text-xs font-normal tracking-tight">
                   Growth Percentage
                 </div>
-                <div className="flex-1 text-[#85A8C3] text-right text-xs font-normal -tracking-[0.36px]">
+                <div className="flex-1 text-slate-400 text-right text-xs font-normal tracking-tight">
                   Profit
                 </div>
-                <div className="flex-1 text-[#85A8C3] text-right text-xs font-normal -tracking-[0.36px]">
+                <div className="flex-1 text-slate-400 text-right text-xs font-normal tracking-tight">
                   Won Trade Percent
                 </div>
               </div>
@@ -225,12 +216,12 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
               const position = index + 1;
 
               return (
-                <div key={trader.id} className="relative w-full">
-                  <div className="flex p-2 pr-8 items-center gap-[72px] w-full rounded-lg border border-[#28BFFF] bg-[linear-gradient(0deg,rgba(21,56,71,0.15)_39.23%,rgba(14,30,35,0.15)_100%)]">
+                <div key={trader.id} className="relative w-full group">
+                  <div className="flex p-2 pr-8 items-center gap-[72px] w-full rounded-lg border border-cyan-400/20 bg-gradient-to-r from-slate-800/60 to-slate-700/40 hover:from-slate-700/70 hover:to-slate-600/50 transition-all duration-200">
                     {/* Background gradient overlay */}
                     {ranking.bgGradient && (
                       <div
-                        className={`absolute left-0 top-0 w-[225px] h-[58px] opacity-30 ${ranking.bgGradient}`}
+                        className={`absolute left-0 top-0 w-[225px] h-[58px] opacity-30 ${ranking.bgGradient} rounded-lg`}
                       />
                     )}
 
@@ -243,12 +234,12 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
                         {position <= 3 ? (
                           <>
                             <CrownIcon
-                              className="w-4 h-6 rotate-[9.895deg] absolute left-0 top-0"
-                              color="#E4EEF5"
+                              className="w-4 h-6 transform rotate-[10deg] absolute left-0 top-0"
+                              color="#E2E8F0"
                             />
                             <CrownIcon
-                              className="w-4 h-6 rotate-[-170.105deg] absolute left-8 top-0"
-                              color="#E4EEF5"
+                              className="w-4 h-6 transform rotate-[-170deg] absolute left-8 top-0"
+                              color="#E2E8F0"
                             />
                           </>
                         ) : (
@@ -257,7 +248,7 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
                           )
                         )}
                         <div
-                          className={`absolute left-[19px] top-0 w-3 h-[22px] text-center text-lg font-medium -tracking-[0.54px] ${ranking.textColor}`}
+                          className={`absolute left-[19px] top-0 w-3 h-[22px] text-center text-lg font-medium tracking-tight ${ranking.textColor}`}
                         >
                           {position}
                         </div>
@@ -271,34 +262,34 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
                           <img
                             src={trader.avatar || "/api/placeholder/32/32"}
                             alt="Avatar"
-                            className="w-8 h-8 rounded-full"
+                            className="w-8 h-8 rounded-full ring-2 ring-slate-600/50"
                           />
                         </div>
-                        <div className="flex-1 text-[#E4EEF5] text-lg font-medium -tracking-[0.54px] truncate">
+                        <div className="flex-1 text-slate-100 text-lg font-medium tracking-tight truncate">
                           {trader.name}
                         </div>
                       </div>
 
                       <div className="flex items-center gap-8 flex-1">
-                        <div className="flex-1 text-[#85A8C3] text-right text-sm font-semibold -tracking-[0.42px]">
+                        <div className="flex-1 text-slate-400 text-right text-sm font-semibold tracking-tight">
                           {formatCurrency(trader.equity)}
                         </div>
                         <div className="flex justify-end items-center gap-2.5 flex-1">
                           <div
-                            className={`flex py-1 px-2 justify-center items-center gap-2.5 rounded-full ${trader.isCurrentUser ? "bg-[rgba(40,191,255,0.05)]" : position === 1 ? "bg-[rgba(240,216,127,0.08)]" : position === 2 ? "bg-[rgba(199,205,222,0.08)]" : position === 3 ? "bg-[rgba(207,160,132,0.08)]" : "bg-[rgba(40,191,255,0.05)]"}`}
+                            className={`flex py-1 px-2 justify-center items-center gap-2.5 rounded-full ${ranking.badgeBg} ring-1 ring-white/10`}
                           >
                             <div
-                              className={`text-sm font-semibold -tracking-[0.42px] ${ranking.badgeColor}`}
+                              className={`text-sm font-semibold tracking-tight ${ranking.badgeColor}`}
                             >
                               {trader.growthPercentage}%
                             </div>
                           </div>
                         </div>
-                        <div className="flex-1 text-[#85A8C3] text-right text-sm font-semibold -tracking-[0.42px]">
+                        <div className="flex-1 text-slate-400 text-right text-sm font-semibold tracking-tight">
                           {formatCurrency(trader.profit)}
                         </div>
                         <div className="flex justify-end items-center flex-1">
-                          <div className="text-[#85A8C3] text-sm font-semibold -tracking-[0.42px]">
+                          <div className="text-slate-400 text-sm font-semibold tracking-tight">
                             {trader.wonTradePercent}%
                           </div>
                         </div>
@@ -308,7 +299,7 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
 
                   {/* "You" Label */}
                   {trader.isCurrentUser && (
-                    <div className="absolute left-[81px] top-[20px] text-[#E4EEF5] text-center text-sm font-semibold z-20">
+                    <div className="absolute left-[81px] top-[20px] text-slate-100 text-center text-sm font-semibold z-20 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                       You
                     </div>
                   )}
@@ -322,19 +313,19 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
         <div className="flex justify-between items-center w-full">
           {/* Items Per Page */}
           <div className="flex justify-center items-center gap-1">
-            <div className="text-[#E4EEF5] text-center text-xs font-normal -tracking-[0.36px]">
+            <div className="text-slate-100 text-center text-xs font-normal tracking-tight">
               Traders per page:
             </div>
-            <div className="flex h-11 py-3 px-4 pr-3 justify-center items-center gap-2 rounded-lg border border-[#28BFFF] bg-[rgba(40,191,255,0.05)] shadow-[0px_-8px_32px_0px_rgba(78,193,255,0.06)_inset] cursor-pointer">
-              <div className="text-[#E4EEF5] text-sm font-semibold text-shadow-[0px_0px_5px_rgba(0,0,0,0.20)]">
+            <div className="flex h-11 py-3 px-4 pr-3 justify-center items-center gap-2 rounded-lg border border-cyan-400/20 bg-cyan-400/5 hover:bg-cyan-400/10 transition-colors cursor-pointer">
+              <div className="text-slate-100 text-sm font-semibold">
                 {selectedItemsPerPage}
               </div>
-              <ChevronDownIcon className="w-5 h-5 text-[#E4EEF5]" />
+              <ChevronDownIcon className="w-5 h-5 text-slate-100" />
             </div>
           </div>
 
           {/* Page Info */}
-          <div className="text-[#456074] text-center text-xs font-normal -tracking-[0.36px]">
+          <div className="text-slate-500 text-center text-xs font-normal tracking-tight">
             {String((currentPage - 1) * itemsPerPage + 1).padStart(2, "0")} -{" "}
             {String(Math.min(currentPage * itemsPerPage, totalItems)).padStart(
               2,
@@ -346,16 +337,16 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
           {/* Pagination Controls */}
           <div className="flex justify-center items-center gap-2">
             <div className="flex h-[38px] py-1 justify-center items-center gap-1">
-              <div className="text-[#E4EEF5] text-center text-sm font-semibold">
+              <div className="text-slate-100 text-center text-sm font-semibold">
                 First
               </div>
             </div>
 
             <button
               onClick={() => onPageChange(Math.max(1, currentPage - 1))}
-              className="flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-[#28BFFF] bg-[rgba(40,191,255,0.05)]"
+              className="flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-cyan-400/20 bg-cyan-400/5 hover:bg-cyan-400/10 transition-colors"
             >
-              <ChevronLeftIcon className="w-5 h-5 text-[#85A8C3]" />
+              <ChevronLeftIcon className="w-5 h-5 text-slate-400" />
             </button>
 
             {generatePaginationNumbers().map((page, index) => (
@@ -364,17 +355,15 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
                 onClick={() =>
                   typeof page === "number" ? onPageChange(page) : undefined
                 }
-                className={`flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-[#28BFFF] bg-[rgba(40,191,255,0.05)] ${
+                className={`flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-cyan-400/20 transition-colors ${
                   page === currentPage
-                    ? "bg-gradient-to-r from-[#0099FF] to-[#50D5FF] bg-clip-text text-transparent"
-                    : ""
+                    ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white border-transparent"
+                    : "bg-cyan-400/5 hover:bg-cyan-400/10"
                 }`}
               >
                 <div
-                  className={`text-sm font-semibold text-shadow-[0px_0px_5px_rgba(0,0,0,0.20)] ${
-                    page === currentPage
-                      ? "bg-gradient-to-r from-[#0099FF] to-[#50D5FF] bg-clip-text text-transparent"
-                      : "text-[#85A8C3]"
+                  className={`text-sm font-semibold ${
+                    page === currentPage ? "text-white" : "text-slate-400"
                   }`}
                 >
                   {page}
@@ -386,13 +375,13 @@ const TopTradersTable: React.FC<TopTradersTableProps> = ({
               onClick={() =>
                 onPageChange(Math.min(totalPages, currentPage + 1))
               }
-              className="flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-[#28BFFF] bg-[rgba(40,191,255,0.05)]"
+              className="flex w-8 h-8 p-3 justify-center items-center gap-2 rounded-lg border border-cyan-400/20 bg-cyan-400/5 hover:bg-cyan-400/10 transition-colors"
             >
-              <ChevronRightIcon className="w-5 h-5 text-[#85A8C3]" />
+              <ChevronRightIcon className="w-5 h-5 text-slate-400" />
             </button>
 
             <div className="flex h-[38px] py-1 justify-center items-center gap-1">
-              <div className="text-[#E4EEF5] text-center text-sm font-semibold">
+              <div className="text-slate-100 text-center text-sm font-semibold">
                 Last
               </div>
             </div>
